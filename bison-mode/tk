@@ -1,0 +1,4 @@
+# name: tk
+# key: tk
+# --
+(?i:${1:KEYWORD}) {return $0$1;}
