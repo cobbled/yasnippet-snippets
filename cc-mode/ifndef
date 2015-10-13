@@ -1,9 +1,7 @@
 # -*- mode: snippet -*-
-# name: ifndef
-# key: ifndef
+# name: ifn
+# key: ifn
 # --
-#ifndef ${1:MACRO}
-
+#ifndef ${1}
 $0
-
-#endif // $1
+#endif
