@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: ifn
-# key: ifn
-# --
-#ifndef ${1}
-$0
-#endif
