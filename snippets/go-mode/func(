@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: struct function
+# key: func()
+# --
+// $2 ${4:comments...}
+func ($1) ${2:name}(${2:args}) $3 {
+  $0
+}

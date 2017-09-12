@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: struct
+# key: struct
+# --
+
+// $1 ${2:comments...}
+type ${1:name} struct {
+  $0
+}
