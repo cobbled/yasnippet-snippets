@@ -4,7 +4,7 @@
 
 ;; Author: Andrea Crotti <andrea.crotti.0@gmail.com>
 ;; Keywords: snippets
-;; Version: 1.0.3
+;; Version: 0.2
 ;; Package-Requires: ((yasnippet "0.8.0"))
 ;; Keywords: convenience, snippets
 
@@ -31,21 +31,21 @@
 
 (require 'yasnippet)
 
-(setq yasnippet-snippets-dir
-      (file-name-directory
-       ;; Copied from ‘f-this-file’ from f.el.
-       (cond
-        (load-in-progress load-file-name)
-        ((and (boundp 'byte-compile-current-file) byte-compile-current-file)
-         byte-compile-current-file)
-        (:else (buffer-file-name)))))
+(defconst yasnippet-snippets-dir
+  (expand-file-name
+   "snippets"
+   (file-name-directory
+    ;; Copied from ‘f-this-file’ from f.el.
+    (cond
+     (load-in-progress load-file-name)
+     ((and (boundp 'byte-compile-current-file) byte-compile-current-file)
+      byte-compile-current-file)
+     (:else (buffer-file-name))))))
 
 ;;;###autoload
 (defun yasnippet-snippets-initialize ()
-  (let ((snip-dir (expand-file-name "snippets" yasnippet-snippets-dir)))
-    (when (boundp 'yas-snippet-dirs)
-      (add-to-list 'yas-snippet-dirs snip-dir t))
-    (yas-load-directory snip-dir)))
+  (add-to-list 'yas-snippet-dirs 'yasnippet-snippets-dir t)
+  (yas-load-directory yasnippet-snippets-dir t))
 
 ;;;###autoload
 (eval-after-load 'yasnippet
