@@ -2,6 +2,7 @@
 # name: type
 # key: type
 # --
-type $1 $2 {
+// $1 ${2:comments...}
+type ${1:name} $3 {
   $0
 }
